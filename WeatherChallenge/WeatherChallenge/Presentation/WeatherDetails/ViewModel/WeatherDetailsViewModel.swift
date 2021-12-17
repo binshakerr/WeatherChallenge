@@ -22,6 +22,7 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelProtocol {
     
     private var repository: SearchRepositoryProtocol!
     private var cityName: String!
+    private var cancellables = Set<AnyCancellable>()
     
     init(cityName: String, repository: SearchRepositoryProtocol) {
         self.repository = repository
@@ -34,14 +35,19 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelProtocol {
     
     func getCurrentWeatherDetails() {
         dataStatus = .loading
-        repository.currentWeatherFor(name: cityName) { [weak self] result, error in
-            if let error = error {
-                self?.dataStatus = .finished(.failure(error))
-            } else {
+        repository.currentWeatherFor(name: cityName)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.dataStatus = .finished(.failure(error))
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] value in
                 self?.dataStatus = .finished(.success)
-                self?.details = result.map { DetailsItemViewModel(city: $0) }
-            }
-        }
+                self?.details = value.map { DetailsItemViewModel(city: $0) }
+            })
+            .store(in: &cancellables)
     }
     
 }

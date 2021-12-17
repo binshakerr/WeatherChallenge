@@ -34,6 +34,7 @@ class SearchViewModel: SearchViewModelProtocol {
     @Published private(set) var geocodedAddress: String?
 
     let geocoder = CLGeocoder()
+    private var cancellables = Set<AnyCancellable>()
     
     init(repository: SearchRepositoryProtocol) {
         self.repository = repository
@@ -45,14 +46,19 @@ class SearchViewModel: SearchViewModelProtocol {
     func searchCities(name: String) {
         selectedRow = nil
         dataStatus = .loading
-        repository.searchCities(name: name) { [weak self] result, error in
-            if let error = error {
-                self?.dataStatus = .finished(.failure(error))
-            } else {
+        repository.searchCities(name: name)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.dataStatus = .finished(.failure(error))
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] value in
                 self?.dataStatus = .finished(.success)
-                self?.cities = result ?? []
-            }
-        }
+                self?.cities = value
+            })
+            .store(in: &cancellables)
     }
     
     var numberOfRows: Int {

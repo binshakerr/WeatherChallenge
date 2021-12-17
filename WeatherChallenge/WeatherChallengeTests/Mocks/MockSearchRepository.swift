@@ -1,32 +1,30 @@
 //
-//  SearchRepository.swift
-//  WeatherChallenge
+//  MockSearchViewModel.swift
+//  WeatherChallengeTests
 //
 //  Created by Eslam Shaker on 17/12/2021.
 //
 
 import Foundation
 import Combine
+@testable import WeatherChallenge
 
-protocol SearchRepositoryProtocol {
-    func searchCities(name: String) -> AnyPublisher<[SearchResult], Error>
-    func currentWeatherFor(name: String) -> AnyPublisher<City?, Error>
-}
+class MockSearchRepository: SearchRepositoryProtocol {
+    
+    private var networkHandler: NetworkHandlerProtocol
+    private var testSession: URLSession
 
-class SearchRepository: SearchRepositoryProtocol {
-    
-    private var networkHandler: NetworkHandlerProtocol!
-    
-    convenience init(networkHandler: NetworkHandlerProtocol) {
-        self.init()
+    init(networkHandler: NetworkHandlerProtocol, session: URLSession) {
         self.networkHandler = networkHandler
+        self.testSession = session
     }
     
     func searchCities(name: String) -> AnyPublisher<[SearchResult], Error> {
         return Future<[SearchResult], Error> { [weak self] promise in
+            guard let self = self else { return }
             do {
                 let request = try WeatherService.searchCities(name: name).makeURLRequest()
-                self?.networkHandler.requestData(session: .shared, request: request, type: [SearchResult].self, completion: { (cities, error) in
+                self.networkHandler.requestData(session: self.testSession, request: request, type: [SearchResult].self, completion: { (cities, error) in
                     promise(.success(cities ?? []))
                 })
             } catch let error {
@@ -37,9 +35,10 @@ class SearchRepository: SearchRepositoryProtocol {
     
     func currentWeatherFor(name: String) -> AnyPublisher<City?, Error> {
         return Future<City?, Error> { [weak self] promise in
+            guard let self = self else { return }
             do {
                 let request = try WeatherService.currentWeather(name: name).makeURLRequest()
-                self?.networkHandler.requestData(session: .shared, request: request, type: City.self, completion: { (city, error) in
+                self.networkHandler.requestData(session: self.testSession, request: request, type: City.self, completion: { (city, error) in
                     promise(.success(city))
                 })
             } catch let error {
@@ -47,5 +46,5 @@ class SearchRepository: SearchRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
-    
+
 }
