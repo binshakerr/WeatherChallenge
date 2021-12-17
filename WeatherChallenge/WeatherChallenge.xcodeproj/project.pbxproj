@@ -20,6 +20,18 @@
 		DCB62705276C92F000B14BA0 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62701276C92F000B14BA0 /* UIView+AutoLayout.swift */; };
 		DCB62706276C92F000B14BA0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62702276C92F000B14BA0 /* UIView+Extensions.swift */; };
 		DCB62708276C92F000B14BA0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */; };
+		DCB62711276C98FC00B14BA0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270A276C98FC00B14BA0 /* Logger.swift */; };
+		DCB62712276C98FC00B14BA0 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270B276C98FC00B14BA0 /* WeatherService.swift */; };
+		DCB62713276C98FC00B14BA0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270C276C98FC00B14BA0 /* HTTPMethod.swift */; };
+		DCB62714276C98FC00B14BA0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270D276C98FC00B14BA0 /* Parser.swift */; };
+		DCB62715276C98FC00B14BA0 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270E276C98FC00B14BA0 /* NetworkHandler.swift */; };
+		DCB62716276C98FC00B14BA0 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6270F276C98FC00B14BA0 /* EndPoint.swift */; };
+		DCB62717276C98FC00B14BA0 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62710276C98FC00B14BA0 /* APIHandler.swift */; };
+		DCB6271B276C9C9800B14BA0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6271A276C9C9800B14BA0 /* Environment.swift */; };
+		DCB6271E276CA2D800B14BA0 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6271D276CA2D800B14BA0 /* SearchResult.swift */; };
+		DCB62720276CA34900B14BA0 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6271F276CA34900B14BA0 /* SearchRepository.swift */; };
+		DCB62722276CA5FC00B14BA0 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62721276CA5FC00B14BA0 /* DataState.swift */; };
+		DCB62724276CB51C00B14BA0 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62723276CB51C00B14BA0 /* AppColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +69,18 @@
 		DCB62701276C92F000B14BA0 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		DCB62702276C92F000B14BA0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		DCB6270A276C98FC00B14BA0 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DCB6270B276C98FC00B14BA0 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		DCB6270C276C98FC00B14BA0 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		DCB6270D276C98FC00B14BA0 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		DCB6270E276C98FC00B14BA0 /* NetworkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		DCB6270F276C98FC00B14BA0 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		DCB62710276C98FC00B14BA0 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		DCB6271A276C9C9800B14BA0 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DCB6271D276CA2D800B14BA0 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		DCB6271F276CA34900B14BA0 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		DCB62721276CA5FC00B14BA0 /* DataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		DCB62723276CB51C00B14BA0 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +169,7 @@
 		DCB626F2276C853500B14BA0 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DCB6271C276CA2BF00B14BA0 /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -178,6 +203,8 @@
 		DCB626FC276C924A00B14BA0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DCB62723276CB51C00B14BA0 /* AppColor.swift */,
+				DCB62721276CA5FC00B14BA0 /* DataState.swift */,
 				DCB62700276C92D800B14BA0 /* Extensions */,
 				DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */,
 				DCB626CA276C84DD00B14BA0 /* Assets.xcassets */,
@@ -190,6 +217,7 @@
 			children = (
 				DCB626C1276C84DC00B14BA0 /* AppDelegate.swift */,
 				DCB626C3276C84DC00B14BA0 /* SceneDelegate.swift */,
+				DCB6271A276C9C9800B14BA0 /* Environment.swift */,
 				DCB626CF276C84DD00B14BA0 /* Info.plist */,
 			);
 			path = Configuration;
@@ -198,6 +226,7 @@
 		DCB626FE276C925E00B14BA0 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				DCB62709276C98FC00B14BA0 /* Networking */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -205,6 +234,8 @@
 		DCB626FF276C926700B14BA0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DCB62719276C993300B14BA0 /* Repository */,
+				DCB62718276C992600B14BA0 /* Services */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -217,6 +248,43 @@
 				DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCB62709276C98FC00B14BA0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6270A276C98FC00B14BA0 /* Logger.swift */,
+				DCB6270C276C98FC00B14BA0 /* HTTPMethod.swift */,
+				DCB6270D276C98FC00B14BA0 /* Parser.swift */,
+				DCB6270E276C98FC00B14BA0 /* NetworkHandler.swift */,
+				DCB6270F276C98FC00B14BA0 /* EndPoint.swift */,
+				DCB62710276C98FC00B14BA0 /* APIHandler.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DCB62718276C992600B14BA0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6270B276C98FC00B14BA0 /* WeatherService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DCB62719276C993300B14BA0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6271F276CA34900B14BA0 /* SearchRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DCB6271C276CA2BF00B14BA0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6271D276CA2D800B14BA0 /* SearchResult.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,13 +418,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB62716276C98FC00B14BA0 /* EndPoint.swift in Sources */,
 				DCB62706276C92F000B14BA0 /* UIView+Extensions.swift in Sources */,
+				DCB62720276CA34900B14BA0 /* SearchRepository.swift in Sources */,
+				DCB62722276CA5FC00B14BA0 /* DataState.swift in Sources */,
+				DCB6271E276CA2D800B14BA0 /* SearchResult.swift in Sources */,
+				DCB62714276C98FC00B14BA0 /* Parser.swift in Sources */,
 				DCB62705276C92F000B14BA0 /* UIView+AutoLayout.swift in Sources */,
+				DCB6271B276C9C9800B14BA0 /* Environment.swift in Sources */,
 				DCB626F7276C856100B14BA0 /* SearchViewController.swift in Sources */,
 				DCB62708276C92F000B14BA0 /* UIViewController+Extensions.swift in Sources */,
+				DCB62712276C98FC00B14BA0 /* WeatherService.swift in Sources */,
+				DCB62724276CB51C00B14BA0 /* AppColor.swift in Sources */,
+				DCB62717276C98FC00B14BA0 /* APIHandler.swift in Sources */,
 				DCB626C2276C84DC00B14BA0 /* AppDelegate.swift in Sources */,
 				DCB626FB276C85DF00B14BA0 /* SearchViewModel.swift in Sources */,
 				DCB626C4276C84DC00B14BA0 /* SceneDelegate.swift in Sources */,
+				DCB62713276C98FC00B14BA0 /* HTTPMethod.swift in Sources */,
+				DCB62711276C98FC00B14BA0 /* Logger.swift in Sources */,
+				DCB62715276C98FC00B14BA0 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +625,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -574,7 +654,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

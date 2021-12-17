@@ -17,7 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createSearchScreen() -> UINavigationController {
-        let viewModel = SearchViewModel()
+        let logger = Logger()
+        let networkHandler = NetworkHandler(apiHandler: APIHanndler(logger: logger), logger: logger, parser: Parser())
+        let repository = SearchRepository(networkHandler: networkHandler)
+        let viewModel = SearchViewModel(repository: repository)
         let controller = SearchViewController(viewModel: viewModel)
         let navigation = UINavigationController(rootViewController: controller)
         return navigation

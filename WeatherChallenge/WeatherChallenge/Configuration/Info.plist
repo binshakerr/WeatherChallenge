@@ -23,5 +23,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>WEATHER_API_KEY</key>
+	<string>5fc284309ea54320a08103522211712</string>
+	<key>BASE_URL</key>
+	<string>https://api.weatherapi.com/v1</string>
 </dict>
 </plist>
