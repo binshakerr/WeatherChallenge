@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 protocol SearchViewModelProtocol {
     var screenTitle: String { get }
@@ -19,7 +20,9 @@ protocol SearchViewModelProtocol {
     var selectedRow: Int? { get }
     var noResultsText: String { get }
     var searchCellIdentifier: String { get }
-    var selectedCityName: String? { get } 
+    var selectedCityName: String? { get }
+    var geocodedAddress: String? { get }
+    func reverseGeocodeLocation(_ location: CLLocation)
 }
 
 class SearchViewModel: SearchViewModelProtocol {
@@ -28,6 +31,9 @@ class SearchViewModel: SearchViewModelProtocol {
     @Published private(set) var dataStatus: DataState?
     @Published private(set) var cities: [SearchResult]?
     @Published var selectedRow: Int?
+    @Published private(set) var geocodedAddress: String?
+
+    let geocoder = CLGeocoder()
     
     init(repository: SearchRepositoryProtocol) {
         self.repository = repository
@@ -63,6 +69,30 @@ class SearchViewModel: SearchViewModelProtocol {
     var selectedCityName: String? {
         guard let row = selectedRow else { return nil }
         return cities?[row].name
+    }
+    
+    func reverseGeocodeLocation(_ location: CLLocation) {
+        dataStatus = .loading
+        geocoder.reverseGeocodeLocation(location, completionHandler: { [weak self] (placemarks, error) in
+            if let error = error {
+                self?.dataStatus = .finished(.failure(error))
+                return
+            }
+
+            guard let placemarks = placemarks, placemarks.count > 0 else {
+                let placemarkError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "couldn't find your address, please type it."])
+                self?.dataStatus = .finished(.failure(placemarkError))
+                return
+            }
+            
+            let placemark = placemarks[0]
+            let locality = placemark.locality ?? ""
+            let administrativeArea = placemark.administrativeArea ?? ""
+            let country = placemark.country ?? ""
+            let userLocationString = "\(locality), \(administrativeArea), \(country)"
+            self?.dataStatus = .finished(.success)
+            self?.geocodedAddress = userLocationString
+        })
     }
     
 }

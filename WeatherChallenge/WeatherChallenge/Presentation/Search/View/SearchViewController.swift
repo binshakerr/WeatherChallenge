@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CoreLocation
 
 class SearchViewController: UIViewController {
     
@@ -46,6 +47,7 @@ class SearchViewController: UIViewController {
         return indicator
     }()
     var searchWorkItem: DispatchWorkItem?
+    let manager = CLLocationManager()
     
     convenience init(viewModel: SearchViewModel) {
         self.init()
@@ -107,6 +109,15 @@ class SearchViewController: UIViewController {
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
+        
+        viewModel.$geocodedAddress
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] string in
+                guard let self = self, let address = string else { return }
+                self.searchBar.text = address
+                self.searchBar.becomeFirstResponder()
+            }
+            .store(in: &cancellables)
     }
     
     func openDetailsScreen(name: String){
@@ -123,11 +134,21 @@ class SearchViewController: UIViewController {
         button.backgroundColor = enabled ? UIColor(appColor: .red) : .gray
     }
     
+    func setupLocationManager(){
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
     @IBAction func goButtonPressed(_ sender: Any) {
         openDetailsScreen(name: viewModel.selectedCityName ?? "")
     }
     
-    
+    @IBAction func currentLocationButtonPressed(_ sender: Any) {
+        setupLocationManager()
+    }
+
 }
 
 
@@ -188,4 +209,39 @@ extension SearchViewController: UISearchBarDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: searchWorkItem!)
     }
     
+}
+
+
+extension SearchViewController: CLLocationManagerDelegate {
+    
+    //to get most recent location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
+        guard let location = locations.last else { return }
+        viewModel.reverseGeocodeLocation(location)
+    }
+    
+    //to hanlde cases of denied access
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        manager.stopUpdatingLocation()
+        switch (error as NSError).code {
+        case 1: //denied
+            showDeniedLocationAlert()
+        default:
+            showAlert(title: "Error", message: error.localizedDescription)
+        }
+    }
+    
+    func showDeniedLocationAlert(){
+        let alert = UIAlertController(title: "Error", message: "You have denied access to location before, to enable it again you have to change it from app settings.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Open Settings", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
 }

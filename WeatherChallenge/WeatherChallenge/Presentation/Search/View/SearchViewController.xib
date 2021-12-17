@@ -28,7 +28,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CDV-mI-XlF">
-                    <rect key="frame" x="0.0" y="115" width="414" height="643"/>
+                    <rect key="frame" x="0.0" y="155" width="414" height="603"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GES-Va-Y9Z">
@@ -43,19 +43,31 @@
                         <action selector="goButtonPressed:" destination="-1" eventType="touchUpInside" id="Fum-Ff-Kae"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB7-eW-n1E">
+                    <rect key="frame" x="82.5" y="115" width="249" height="30"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Or get your current location weather">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                    <connections>
+                        <action selector="currentLocationButtonPressed:" destination="-1" eventType="touchUpInside" id="E68-ux-N7u"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="CDV-mI-XlF" firstAttribute="top" secondItem="vB7-eW-n1E" secondAttribute="bottom" constant="10" id="2qp-pl-9Io"/>
                 <constraint firstItem="GES-Va-Y9Z" firstAttribute="top" secondItem="CDV-mI-XlF" secondAttribute="bottom" constant="20" id="6B8-Eu-nz2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GES-Va-Y9Z" secondAttribute="trailing" constant="30" id="9II-HN-jDq"/>
                 <constraint firstItem="GES-Va-Y9Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="9X9-rq-7V1"/>
-                <constraint firstItem="CDV-mI-XlF" firstAttribute="top" secondItem="Gbw-xy-GrS" secondAttribute="bottom" constant="10" id="9zq-SZ-UYv"/>
                 <constraint firstItem="Gbw-xy-GrS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="CrA-M8-e8O"/>
                 <constraint firstItem="GES-Va-Y9Z" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.06" id="DG4-21-Lzf"/>
                 <constraint firstItem="Gbw-xy-GrS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Fcg-TW-T6Z"/>
                 <constraint firstItem="Gbw-xy-GrS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="X9H-9n-1BO"/>
+                <constraint firstItem="vB7-eW-n1E" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yyo-vu-2e8"/>
                 <constraint firstItem="CDV-mI-XlF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="b3B-fe-bLp"/>
+                <constraint firstItem="vB7-eW-n1E" firstAttribute="top" secondItem="Gbw-xy-GrS" secondAttribute="bottom" constant="10" id="fIx-Cv-23F"/>
                 <constraint firstItem="CDV-mI-XlF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gfC-oD-dPj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GES-Va-Y9Z" secondAttribute="bottom" constant="30" id="jJr-mU-gfE"/>
             </constraints>
@@ -66,6 +78,9 @@
         <namedColor name="PremiseRed">
             <color red="0.92549019607843142" green="0.40000000000000002" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
