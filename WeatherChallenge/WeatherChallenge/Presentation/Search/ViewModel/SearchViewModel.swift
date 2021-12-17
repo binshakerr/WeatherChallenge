@@ -7,6 +7,15 @@
 
 import Foundation
 
-class SearchViewModel {
+protocol SearchViewModelProtocol {
+    var screenTitle: String {get}
+    var searchBarPlaceHolder: String {get}
+}
+
+class SearchViewModel: SearchViewModelProtocol {
+    
+    
+    let screenTitle = "Search"
+    let searchBarPlaceHolder = "Enter city name to search.."
     
 }

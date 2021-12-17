@@ -17,7 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createSearchScreen() -> UINavigationController {
-        let controller = SearchViewController()
+        let viewModel = SearchViewModel()
+        let controller = SearchViewController(viewModel: viewModel)
         let navigation = UINavigationController(rootViewController: controller)
         return navigation
     }

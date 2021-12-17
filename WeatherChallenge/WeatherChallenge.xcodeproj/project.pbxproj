@@ -17,6 +17,9 @@
 		DCB626F7276C856100B14BA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626F5276C856100B14BA0 /* SearchViewController.swift */; };
 		DCB626F8276C856100B14BA0 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB626F6276C856100B14BA0 /* SearchViewController.xib */; };
 		DCB626FB276C85DF00B14BA0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626FA276C85DF00B14BA0 /* SearchViewModel.swift */; };
+		DCB62705276C92F000B14BA0 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62701276C92F000B14BA0 /* UIView+AutoLayout.swift */; };
+		DCB62706276C92F000B14BA0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62702276C92F000B14BA0 /* UIView+Extensions.swift */; };
+		DCB62708276C92F000B14BA0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		DCB626F5276C856100B14BA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DCB626F6276C856100B14BA0 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		DCB626FA276C85DF00B14BA0 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		DCB62701276C92F000B14BA0 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		DCB62702276C92F000B14BA0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +107,12 @@
 		DCB626C0276C84DC00B14BA0 /* WeatherChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				DCB626FD276C925300B14BA0 /* Configuration */,
+				DCB626FF276C926700B14BA0 /* Data */,
 				DCB626F2276C853500B14BA0 /* Domain */,
+				DCB626FE276C925E00B14BA0 /* Infrastructure */,
 				DCB626F1276C852A00B14BA0 /* Presentation */,
-				DCB626C1276C84DC00B14BA0 /* AppDelegate.swift */,
-				DCB626C3276C84DC00B14BA0 /* SceneDelegate.swift */,
-				DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */,
-				DCB626CA276C84DD00B14BA0 /* Assets.xcassets */,
-				DCB626CF276C84DD00B14BA0 /* Info.plist */,
+				DCB626FC276C924A00B14BA0 /* Shared */,
 			);
 			path = WeatherChallenge;
 			sourceTree = "<group>";
@@ -168,6 +173,50 @@
 				DCB626FA276C85DF00B14BA0 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DCB626FC276C924A00B14BA0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DCB62700276C92D800B14BA0 /* Extensions */,
+				DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */,
+				DCB626CA276C84DD00B14BA0 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DCB626FD276C925300B14BA0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DCB626C1276C84DC00B14BA0 /* AppDelegate.swift */,
+				DCB626C3276C84DC00B14BA0 /* SceneDelegate.swift */,
+				DCB626CF276C84DD00B14BA0 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DCB626FE276C925E00B14BA0 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		DCB626FF276C926700B14BA0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DCB62700276C92D800B14BA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCB62701276C92F000B14BA0 /* UIView+AutoLayout.swift */,
+				DCB62702276C92F000B14BA0 /* UIView+Extensions.swift */,
+				DCB62704276C92F000B14BA0 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +350,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB62706276C92F000B14BA0 /* UIView+Extensions.swift in Sources */,
+				DCB62705276C92F000B14BA0 /* UIView+AutoLayout.swift in Sources */,
 				DCB626F7276C856100B14BA0 /* SearchViewController.swift in Sources */,
+				DCB62708276C92F000B14BA0 /* UIViewController+Extensions.swift in Sources */,
 				DCB626C2276C84DC00B14BA0 /* AppDelegate.swift in Sources */,
 				DCB626FB276C85DF00B14BA0 /* SearchViewModel.swift in Sources */,
 				DCB626C4276C84DC00B14BA0 /* SceneDelegate.swift in Sources */,
@@ -477,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChallenge/Info.plist;
+				INFOPLIST_FILE = WeatherChallenge/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -506,7 +558,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChallenge/Info.plist;
+				INFOPLIST_FILE = WeatherChallenge/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
