@@ -2,7 +2,7 @@
 a simple weather app 
 
 ## Weather API
-I have chosed WeatherAPI as a service, the main reason for this, is that it has autocomplete API for searching for city names.
+I have chosed [WeatherAPI](https://www.weatherapi.com/) as a service, the main reason for this, is that it has autocomplete API for searching for city names.
 
 ## Features
 - Clean Archeticture 
@@ -18,3 +18,7 @@ The project doesn't contain any 3rd party library, I think it's cleaner to use t
 
 ## Xcode
 project built using xcode 13.1 and support ios 13+
+
+## Swift
+version 5
+
