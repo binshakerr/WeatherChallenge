@@ -37,31 +37,22 @@ class SearchViewModelTests: XCTestCase {
         viewModel = SearchViewModel(repository: repository)
         
         //when
-        let receivedAllValues = expectation(description: "all values received")
-//        var recievedArray = [SearchResult]()
-//        viewModel.searchCities(name: "london")
-        viewModel.$cities.sink { completion in
-            switch completion {
-            case .finished:
-                receivedAllValues.fulfill()
-            case .failure:
-                break
+        let expectation = XCTestExpectation(description: "Publishes values then finishes")
+        var values: [SearchResult] = []
+        viewModel.$cities.sink { value in
+            if let completeValue = value {
+                values = completeValue
+                expectation.fulfill()
             }
-        } receiveValue: { value in
-//            recievedArray = value!
-            XCTAssertNotNil(value)
-            XCTAssertEqual(value?.count, 10)
         }.store(in: &cancellables)
-
+        
         viewModel.searchCities(name: "london")
+        wait(for: [expectation], timeout: 3)
         
         //then
-//        XCTAssertNotNil(recievedArray)
-//        XCTAssertEqual(recievedArray.count, 10)
-        //            XCTAssertEqual(result?.first?.name, "London, City of London, Greater London, United Kingdom")
-        //            XCTAssertEqual(result!.last?.lat, 51.52)
-        
-        waitForExpectations(timeout: 1)
+        XCTAssertEqual(values.count, 10)
+        XCTAssertEqual(values.first?.name, "London, City of London, Greater London, United Kingdom")
+        XCTAssertEqual(values.last?.lat, 51.53)
     }
     
     func test_viewModel_InitialState(){

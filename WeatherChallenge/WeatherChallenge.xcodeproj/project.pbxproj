@@ -22,7 +22,6 @@
 		DCB626CB276C84DD00B14BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB626CA276C84DD00B14BA0 /* Assets.xcassets */; };
 		DCB626CE276C84DD00B14BA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */; };
 		DCB626E3276C84DD00B14BA0 /* WeatherChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626E2276C84DD00B14BA0 /* WeatherChallengeUITests.swift */; };
-		DCB626E5276C84DD00B14BA0 /* WeatherChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626E4276C84DD00B14BA0 /* WeatherChallengeUITestsLaunchTests.swift */; };
 		DCB626F7276C856100B14BA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626F5276C856100B14BA0 /* SearchViewController.swift */; };
 		DCB626F8276C856100B14BA0 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB626F6276C856100B14BA0 /* SearchViewController.xib */; };
 		DCB626FB276C85DF00B14BA0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB626FA276C85DF00B14BA0 /* SearchViewModel.swift */; };
@@ -87,7 +86,6 @@
 		DCB626D4276C84DD00B14BA0 /* WeatherChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB626DE276C84DD00B14BA0 /* WeatherChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB626E2276C84DD00B14BA0 /* WeatherChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherChallengeUITests.swift; sourceTree = "<group>"; };
-		DCB626E4276C84DD00B14BA0 /* WeatherChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DCB626F5276C856100B14BA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DCB626F6276C856100B14BA0 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		DCB626FA276C85DF00B14BA0 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				DCB626E2276C84DD00B14BA0 /* WeatherChallengeUITests.swift */,
-				DCB626E4276C84DD00B14BA0 /* WeatherChallengeUITestsLaunchTests.swift */,
 			);
 			path = WeatherChallengeUITests;
 			sourceTree = "<group>";
@@ -566,7 +563,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB626E3276C84DD00B14BA0 /* WeatherChallengeUITests.swift in Sources */,
-				DCB626E5276C84DD00B14BA0 /* WeatherChallengeUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
