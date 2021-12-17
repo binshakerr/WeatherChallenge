@@ -19,6 +19,7 @@ protocol SearchViewModelProtocol {
     var selectedRow: Int? { get }
     var noResultsText: String { get }
     var searchCellIdentifier: String { get }
+    var selectedCityName: String? { get } 
 }
 
 class SearchViewModel: SearchViewModelProtocol {
@@ -58,5 +59,10 @@ class SearchViewModel: SearchViewModelProtocol {
     
     let noResultsText = "No results found"
     let searchCellIdentifier = "searchCell"
+    
+    var selectedCityName: String? {
+        guard let row = selectedRow else { return nil }
+        return cities?[row].name
+    }
     
 }

@@ -62,6 +62,7 @@ class SearchViewController: UIViewController {
     func setupUI(){
         navigationItem.title = viewModel.screenTitle
         view.addSubview(loadingIndicator)
+        hideBackButtonTitle()
     }
     
     func bindViewModel() {
@@ -100,16 +101,30 @@ class SearchViewController: UIViewController {
         
         viewModel.$selectedRow
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.tableView.reloadData()
+            .sink { [weak self] row in
+                guard let self = self else { return }
+                self.changeButtonAvailability(self.goButton, enabled: row != nil)
+                self.tableView.reloadData()
             }
             .store(in: &cancellables)
     }
     
+    func openDetailsScreen(name: String){
+        let logger = Logger()
+        let networkHandler = NetworkHandler(apiHandler: APIHanndler(logger: logger), logger: logger, parser: Parser())
+        let repository = SearchRepository(networkHandler: networkHandler)
+        let viewModel = WeatherDetailsViewModel(cityName: name, repository: repository)
+        let controller = WeatherDetailsViewController(viewModel: viewModel)
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
+    func changeButtonAvailability(_ button: UIButton, enabled: Bool){
+        button.isUserInteractionEnabled = enabled
+        button.backgroundColor = enabled ? UIColor(appColor: .red) : .gray
+    }
     
     @IBAction func goButtonPressed(_ sender: Any) {
-        
+        openDetailsScreen(name: viewModel.selectedCityName ?? "")
     }
     
     

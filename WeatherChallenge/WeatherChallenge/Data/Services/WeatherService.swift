@@ -3,6 +3,7 @@ import Foundation
 
 enum WeatherService {
     case searchCities(name: String)
+    case currentWeather(name: String)
 }
 
 extension WeatherService: EndPoint {
@@ -15,6 +16,8 @@ extension WeatherService: EndPoint {
         switch self {
         case .searchCities:
             return .get
+        case .currentWeather:
+            return .get
         }
     }
     
@@ -22,6 +25,8 @@ extension WeatherService: EndPoint {
         switch self {
         case .searchCities:
             return "/search.json"
+        case .currentWeather:
+            return "/current.json"
         }
     }
     
@@ -34,8 +39,15 @@ extension WeatherService: EndPoint {
                 "q": name
             ]
             return parameters
+            
+        case let .currentWeather(name):
+            let parameters = [
+                "key": Environment.APIKey,
+                "q": name,
+                "aqi": "no"
+            ]
+            return parameters
         }
-        
     }
     
     var headers: [String: String] {
@@ -43,9 +55,3 @@ extension WeatherService: EndPoint {
     }
     
 }
-
-//extension PlayListService {
-//    func asURLRequest() throws -> URLRequest {
-//        return try makeURLRequest()
-//    }
-//}
