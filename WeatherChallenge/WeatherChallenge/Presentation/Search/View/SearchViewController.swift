@@ -115,7 +115,7 @@ class SearchViewController: UIViewController {
             .sink { [weak self] string in
                 guard let self = self, let address = string else { return }
                 self.searchBar.text = address
-                self.searchBar.becomeFirstResponder()
+                self.viewModel.searchCities(name: address)
             }
             .store(in: &cancellables)
     }
@@ -137,8 +137,11 @@ class SearchViewController: UIViewController {
     func setupLocationManager(){
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
+            manager.startUpdatingLocation()
+        } else {
+            manager.requestWhenInUseAuthorization()
+        }
     }
     
     @IBAction func goButtonPressed(_ sender: Any) {
@@ -214,14 +217,21 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: CLLocationManagerDelegate {
     
-    //to get most recent location
+    ///to get most recent location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         guard let location = locations.last else { return }
         viewModel.reverseGeocodeLocation(location)
     }
     
-    //to hanlde cases of denied access
+    ///request location first time after authorization
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            manager.startUpdatingLocation()
+        }
+    }
+    
+    ///to hanlde cases of denied access
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
         switch (error as NSError).code {
@@ -232,6 +242,7 @@ extension SearchViewController: CLLocationManagerDelegate {
         }
     }
     
+    ///shown when user has denied access to open app settings
     func showDeniedLocationAlert(){
         let alert = UIAlertController(title: "Error", message: "You have denied access to location before, to enable it again you have to change it from app settings.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Open Settings", style: .default) { _ in
