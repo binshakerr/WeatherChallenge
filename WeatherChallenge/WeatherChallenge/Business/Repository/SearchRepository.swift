@@ -15,10 +15,9 @@ protocol SearchRepositoryProtocol {
 
 class SearchRepository: SearchRepositoryProtocol {
     
-    private var networkHandler: NetworkHandlerProtocol!
+    private let networkHandler: NetworkHandlerProtocol
     
-    convenience init(networkHandler: NetworkHandlerProtocol) {
-        self.init()
+    init(networkHandler: NetworkHandlerProtocol) {
         self.networkHandler = networkHandler
     }
     

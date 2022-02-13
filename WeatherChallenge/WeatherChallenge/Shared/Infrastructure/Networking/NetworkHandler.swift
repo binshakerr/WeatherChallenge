@@ -6,9 +6,9 @@ protocol NetworkHandlerProtocol {
 
 class NetworkHandler: NetworkHandlerProtocol {
     
-    private var apiHandler: APIHandlerProtocol
-    private var logger: LoggerProtocol
-    private var parser: ParserProtocol
+    private let apiHandler: APIHandlerProtocol
+    private let logger: LoggerProtocol
+    private let parser: ParserProtocol
     
     init(apiHandler: APIHandlerProtocol, logger: LoggerProtocol, parser: ParserProtocol) {
         self.apiHandler = apiHandler

@@ -6,7 +6,7 @@ protocol APIHandlerProtocol {
 
 class APIHanndler: APIHandlerProtocol {
     
-    private var logger: LoggerProtocol
+    private let logger: LoggerProtocol
     private let configuration: URLSessionConfiguration = {
         var configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = false //false = return immediatly with error, true = need to handle connectivity status
@@ -14,7 +14,7 @@ class APIHanndler: APIHandlerProtocol {
         return configuration
     }()
     
-    init(logger: LoggerProtocol){
+    init(logger: LoggerProtocol) {
         self.logger = logger
     }
     

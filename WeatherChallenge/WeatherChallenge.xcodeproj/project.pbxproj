@@ -191,10 +191,8 @@
 		DCB626C0276C84DC00B14BA0 /* WeatherChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				DCB626FD276C925300B14BA0 /* Configuration */,
-				DCB626FF276C926700B14BA0 /* Data */,
+				DCB626FF276C926700B14BA0 /* Business */,
 				DCB626F2276C853500B14BA0 /* Domain */,
-				DCB626FE276C925E00B14BA0 /* Infrastructure */,
 				DCB626F1276C852A00B14BA0 /* Presentation */,
 				DCB626FC276C924A00B14BA0 /* Shared */,
 			);
@@ -267,9 +265,11 @@
 			children = (
 				DCB62723276CB51C00B14BA0 /* AppColor.swift */,
 				DCB62721276CA5FC00B14BA0 /* DataState.swift */,
-				DCB62700276C92D800B14BA0 /* Extensions */,
-				DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */,
 				DCB626CA276C84DD00B14BA0 /* Assets.xcassets */,
+				DCB626FD276C925300B14BA0 /* Configuration */,
+				DCB62700276C92D800B14BA0 /* Extensions */,
+				DCB626FE276C925E00B14BA0 /* Infrastructure */,
+				DCB626CC276C84DD00B14BA0 /* LaunchScreen.storyboard */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -293,13 +293,13 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		DCB626FF276C926700B14BA0 /* Data */ = {
+		DCB626FF276C926700B14BA0 /* Business */ = {
 			isa = PBXGroup;
 			children = (
 				DCB62719276C993300B14BA0 /* Repository */,
 				DCB62718276C992600B14BA0 /* Services */,
 			);
-			path = Data;
+			path = Business;
 			sourceTree = "<group>";
 		};
 		DCB62700276C92D800B14BA0 /* Extensions */ = {
@@ -718,7 +718,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChallenge/Configuration/Info.plist;
+				INFOPLIST_FILE = WeatherChallenge/Shared/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -747,7 +747,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChallenge/Configuration/Info.plist;
+				INFOPLIST_FILE = WeatherChallenge/Shared/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
