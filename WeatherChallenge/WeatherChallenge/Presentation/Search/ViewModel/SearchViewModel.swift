@@ -27,21 +27,21 @@ protocol SearchViewModelProtocol {
 
 class SearchViewModel: SearchViewModelProtocol {
     
-    private var repository: SearchRepositoryProtocol!
     @Published private(set) var dataStatus: DataState?
     @Published private(set) var cities: [SearchResult]?
     @Published var selectedRow: Int?
     @Published private(set) var geocodedAddress: String?
-
+    private let repository: SearchRepositoryProtocol
     let geocoder = CLGeocoder()
     private var cancellables = Set<AnyCancellable>()
+    let screenTitle = "Search"
+    let searchBarPlaceHolder = "Enter city name to search.."
+    let noResultsText = "No results found"
+    let searchCellIdentifier = "searchCell"
     
     init(repository: SearchRepositoryProtocol) {
         self.repository = repository
     }
-    
-    let screenTitle = "Search"
-    let searchBarPlaceHolder = "Enter city name to search.."
     
     func searchCities(name: String) {
         selectedRow = nil
@@ -68,9 +68,6 @@ class SearchViewModel: SearchViewModelProtocol {
     func cityAt(_ index: Int)-> SearchResult? {
         return cities?[index]
     }
-    
-    let noResultsText = "No results found"
-    let searchCellIdentifier = "searchCell"
     
     var selectedCityName: String? {
         guard let row = selectedRow else { return nil }

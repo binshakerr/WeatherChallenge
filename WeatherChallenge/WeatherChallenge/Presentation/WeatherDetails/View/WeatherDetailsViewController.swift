@@ -18,7 +18,7 @@ class WeatherDetailsViewController: UIViewController {
     @IBOutlet weak var precipitationLabel: UILabel!
     @IBOutlet weak var conditionImage: UIImageView!
     
-    private var viewModel: WeatherDetailsViewModel!
+    private let viewModel: WeatherDetailsViewModel
     private var cancellables = Set<AnyCancellable>()
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -28,11 +28,15 @@ class WeatherDetailsViewController: UIViewController {
         return indicator
     }()
     
-    convenience init(viewModel: WeatherDetailsViewModel) {
-        self.init()
+    init(viewModel: WeatherDetailsViewModel) {
         self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

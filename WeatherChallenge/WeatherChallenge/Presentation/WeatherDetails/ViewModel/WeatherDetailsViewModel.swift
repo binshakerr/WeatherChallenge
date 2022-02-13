@@ -19,9 +19,8 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelProtocol {
     
     @Published private(set) var dataStatus: DataState?
     @Published private(set) var details: DetailsItemViewModel?
-    
-    private var repository: SearchRepositoryProtocol!
-    private var cityName: String!
+    private let repository: SearchRepositoryProtocol
+    private let cityName: String
     private var cancellables = Set<AnyCancellable>()
     
     init(cityName: String, repository: SearchRepositoryProtocol) {
